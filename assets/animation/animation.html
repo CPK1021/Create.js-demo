@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin:0;
+    }
+    .box{
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      background: #eee;
+      margin-bottom: 10px;
+    }
+    .red{
+      float: left;
+      display: left;
+    }
+    .red-default {
+      width: 300px;
+      height: 302px;
+      background:url(red-default.png)  no-repeat;
+      animation: red-default 2s steps(20) infinite;
+      background-size: 300px 6040px;
+    }
+    .red-xiejia {
+      width: 300px;
+      height: 300px;
+      background:url(red-xiejia.png)  no-repeat;
+      animation: red-xiejia 2s steps(35) infinite;
+      background-size: 300px 10500px;
+    }
+    .red-leidian {
+      width: 300px;
+      height: 320px;
+      background:url(red-leidian.png)  no-repeat;
+      animation: red-leidian 2s steps(22) infinite;
+      background-size: 300px 7040px;
+    }
+    .red-huoqiu {
+      width: 300px;
+      height: 360px;
+      background:url(red-huoqiu.png)  no-repeat;
+      animation: red-huoqiu 2s steps(57) infinite;
+      background-size: 300px 20520px;
+    }
+    .red-hujia {
+      width: 300px;
+      height: 293px;
+      background:url(hudun.png)  no-repeat;
+      animation: red-hujia 2s steps(35) infinite;
+      background-size: 300px 10255px;
+    }
+    .red-pojia {
+      width: 310px;
+      height: 200px;
+      background:url(red-pojia.png)  no-repeat;
+      animation: red-pojia 2s steps(22) infinite;
+      background-size: 310px 4400px;
+    }
+    .red-shuimian {
+      width: 300px;
+      height: 200px;
+      background:url(red-shuimian.png)  no-repeat;
+      animation: red-shuimian 2s steps(40) infinite;
+      background-size: 300px 8000px;
+    }
+    .leidian{
+      width: 300px;
+      height: 446px;
+      background:url(leidian2.png)  no-repeat;
+      animation: leidian 2s steps(17) infinite;
+      background-size: 300px 7582px;
+    }
+    .huoqiu{
+      width: 129px;
+      height: 99px;
+      background:url(huoqiu.png)  no-repeat;
+    }
+    .hujia1{
+      width: 300px;
+      height: 150px;
+      background:url(hujia1.png)  no-repeat;
+      animation: hujia1 2s steps(19) infinite;
+      background-size: 300px 2850px;
+    }
+    .hujia2{
+      width: 300px;
+      height: 150px;
+      background:url(hujia2.png)  no-repeat;
+      animation: hujia2 2s steps(19) infinite;
+      background-size: 300px 2850px;
+    }
+    .red-pugong{
+      width: 300px;
+      height: 150px;
+      background:url(hujia2.png)  no-repeat;
+      animation: hujia2 2s steps(19) infinite;
+      background-size: 300px 2850px;
+    }
+    .fl{
+      float: left;
+    }
+    @keyframes red-default {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -6040px;
+      }
+    }
+    @keyframes red-xiejia {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -10500px;
+      }
+    }
+    @keyframes red-leidian {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -7040px;
+      }
+    }
+    @keyframes red-huoqiu {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -20520px;
+      }
+    }
+    @keyframes red-hujia {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -10255px;
+      }
+    }
+    @keyframes red-pojia {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -4400px;
+      }
+    }
+    @keyframes red-shuimian {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -8000px;
+      }
+    }
+    @keyframes leidian {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -7582px;
+      }
+    }
+    @keyframes hujia1 {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -2850px;
+      }
+    }
+    @keyframes hujia2 {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -2850px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    待机：<div class="red red-default"></div>
+    被破甲：<div class="red red-pojia"></div>
+    睡眠：<div class="red red-shuimian"></div>
+  </div>
+  <div class="box">
+    卸甲：<div class="red red-xiejia"></div>
+    雷电：<div class="red red-leidian"></div>
+    火球：<div class="red red-huoqiu"></div>
+    护甲：<div class="red red-hujia"></div>
+  </div>
+  <div class="box">
+    普工：<div class="red red-pugong"></div>
+    <div class="leidian"></div>
+    <div class="huoqiu"></div>
+  </div>
+  <script type="text/javascript">
+    setTimeout(function(){
+      document.getElementById('red4').style.display = 'block';
+    },2000);
+  </script>
+</body>
+
+</html>

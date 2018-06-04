@@ -1,0 +1,488 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="create.js"></script>
+</head>
+
+<body>
+  <canvas width=840 height=360 id="main" style="background: #ddd;"></canvas>
+  <br>
+  <div>
+    绿队：
+    <button onclick="gtest()">huoqiu</button>
+    <button onclick="gtest1()">leidian</button>
+    <button onclick="gtest2()">bingjian</button>
+    <button onclick="gtest3()">hujia</button>
+    <button onclick="gtest4()">xiejia</button>
+    <button onclick="gtest5()">pojia</button>
+    <button onclick="gtest6()">shuimian</button>
+    <button onclick="gtest7()">pugong</button>
+    <button onclick="gtest8()">success</button>
+    <button onclick="gtest9()">fail</button>
+    <button onclick="gtest10()">hunzhan</button>    
+  </div>
+  <div>
+    红队：
+    <button onclick="rtest()">huoqiu</button>
+    <button onclick="rtest1()">leidian</button>
+    <button onclick="rtest2()">bingjian</button>
+    <button onclick="rtest3()">hujia</button>
+    <button onclick="rtest4()">xiejia</button>
+    <button onclick="rtest5()">pojia</button>
+    <button onclick="rtest6()">shuimian</button>
+    <button onclick="rtest7()">pugong</button>
+    <button onclick="rtest8()">success</button>
+    <button onclick="rtest9()">fail</button>
+    <button onclick="rtest10()">hunzhanstop</button>        
+  </div>
+</body>
+
+</html>
+
+<script>
+  var stage, red, green, huoqiu, redhuoqiu, framerate = 18;
+
+  function gtest() {
+    green.gotoAndPlay('huoqiu');
+    createjs.Tween.get(huoqiu)
+      .wait(1000)
+      .to({ alpha: 1 })
+      .to({ alpha: 0.3, x: 540, y: 270 }, 300)
+      .call(function () {
+        huoqiu.x = 180
+        huoqiu.y = 200
+        huoqiu.alpha = 0
+        red.gotoAndPlay('pojia');
+      })
+  }
+
+  function gtest1() {
+    createjs.Tween.get(green.gotoAndPlay('leidian'))
+      .wait(1000)
+      .call(function () {
+        equip.alpha = 1
+        equip.x = 620
+        equip.gotoAndPlay('leidian');
+        red.gotoAndPlay('pojia');
+      })
+  }
+
+  function gtest2() {
+    createjs.Tween.get(green.gotoAndPlay('bingjian'))
+      .wait(800)
+      .call(function () {
+        bingjian.gotoAndPlay('bingjian')
+        createjs.Tween.get(bingjian)
+          .to({ alpha: 1 })
+          .to({ x: 450, y: 270 }, 1000)
+          .call(function () {
+            red.gotoAndPlay('pojia');
+            bingjian.x = 10;
+            bingjian.y = 190;
+            bingjian.alpha = 0;
+          })
+      })
+  }
+
+  function gtest3() {
+    green.gotoAndPlay('hujia')
+  }
+  function gtest4() {
+    green.gotoAndPlay('xiejia')
+  }
+
+  function gtest5() {
+    green.gotoAndPlay('pojia')
+  }
+  function gtest6() {
+    green.gotoAndPlay('shuimian')
+  }
+  function gtest7() {
+    green.gotoAndPlay('pugong')
+    stage.setChildIndex(green,2)      
+    createjs.Tween.get(green)
+      .wait(600)
+      .to({ x: 0, y: -250, }, 200)  
+      .to({ x: 510, y: -250, }, 200)                    
+      .call(function () {
+        green.gotoAndPlay('pugongeffect')
+        createjs.Tween.get(green)
+          .to({ x: 510, y: 250, }, 750) 
+          .to({ x: 0, y: 0 }, 0)
+           red.gotoAndPlay('pojia')          
+        
+      })
+  }
+  function gtest8() {
+    green.gotoAndPlay('success')
+  }
+  function gtest9() {
+    green.gotoAndPlay('fail')
+  }
+  function gtest10() {
+    hunzhan.alpha=1
+    green.alpha=0
+    red.alpha=0    
+  }
+
+  function rtest() {
+    red.gotoAndPlay('huoqiu')
+    createjs.Tween.get(redhuoqiu)
+      .wait(1000)
+      .to({ alpha: 1 })
+      .to({ alpha: 0.3, x: 320, y: 270 }, 300)
+      .call(function () {
+        redhuoqiu.x = 570
+        redhuoqiu.y = 100
+        redhuoqiu.alpha = 0
+        green.gotoAndPlay('pojia');
+      })
+  }
+
+  function rtest1() {
+    createjs.Tween.get(red.gotoAndPlay('leidian'))
+      .wait(1000)
+      .call(function () {
+        equip.alpha = 1
+        equip.x = 80
+        createjs.Tween.get(equip.gotoAndPlay('leidian'))
+        green.gotoAndPlay('pojia');
+      })
+  }
+
+  function rtest2() {
+    createjs.Tween.get(red.gotoAndPlay('bingjian'))
+      .wait(800)
+      .call(function () {
+        bingjian.x = 810;
+        bingjian.y = 300;
+        bingjian.scaleX = -1;
+        bingjian.scaleY = -1;
+        bingjian.gotoAndPlay('bingjian')
+        createjs.Tween.get(bingjian)
+          .to({ alpha: 1 })
+          .to({ x: 400, y: 370 }, 1000)
+          .call(function () {
+            green.gotoAndPlay('pojia');
+            bingjian.x = 10;
+            bingjian.y = 190;
+            bingjian.scaleX = 1;
+            bingjian.scaleY = 1;
+            bingjian.alpha = 0;            
+          })
+      })
+  }
+
+  function rtest3() {
+    red.gotoAndPlay('hujia')
+  }
+  function rtest4() {
+    red.gotoAndPlay('xiejia')
+  }
+
+  function rtest5() {
+    red.gotoAndPlay('pojia')
+  }
+  function rtest6() {
+    red.gotoAndPlay('shuimian')
+  }
+  function rtest7() {
+    red.gotoAndPlay('pugong')
+    stage.setChildIndex(red,2)    
+    createjs.Tween.get(red)
+      .wait(1000)
+      .call(function () {
+        red.gotoAndPlay('pugongeffect')
+        createjs.Tween.get(red)
+          .to({ x: 0, y: 232, }, 0)
+          .wait(1700)
+          .to({ x: 530, y: 0 }, 0)
+          green.gotoAndPlay('pojia')
+      })
+  }
+  function rtest8() {
+    red.gotoAndPlay('success')
+  }
+  function rtest9() {
+    red.gotoAndPlay('fail')
+  }
+  function rtest10() {
+    hunzhan.alpha=0
+    green.alpha=1
+    red.alpha=1    
+  }
+
+  var redMap = {
+    default: { width: 300, height: 302, step: 20, imageIndex: 0, regx: 0, regy: -58 },
+    huoqiu: { width: 300, height: 360, step: 57, imageIndex: 1, regx: 37, regy: 0 },
+    leidian: { width: 300, height: 320, step: 22, imageIndex: 2, regx: -16, regy: -39 },
+    bingjian: { width: 3010, height: 300, step: 23, imageIndex: 3, regx: 0, regy: -61 },
+    hujia: { width: 300, height: 293, step: 35, imageIndex: 4, regx: -2, regy: -81 },
+    xiejia: { width: 310, height: 300, step: 25, imageIndex: 5, regx: 0, regy: -61 },
+    pojia: { width: 310, height: 200, step: 22, imageIndex: 6, regx: -17, regy: -161 },
+    shuimian: { width: 300, height: 200, step: 40, imageIndex: 7, regx: -1, regy: -159 },
+    pugong: { width: 300, height: 206, step: 38, imageIndex: 8, regx: 51, regy: -159 },
+    success: { width: 300, height: 220, step: 13, imageIndex: 9, regx: -15, regy: -139 },
+    fail: { width: 300, height: 300, step: 17, imageIndex: 10, regx: 51, regy: -60 },
+    pugongeffect: { width: 310, height: 145, step: 31, imageIndex: 11, regx: 0, regy: 0 }
+  }
+  var greenMap = {
+    default: { width: 310, height: 220, step: 20, imageIndex: 0, regx: 0, regy: -140 },
+    huoqiu: { width: 300, height: 280, step: 29, imageIndex: 1, regx: 9, regy: -80 },
+    leidian: { width: 310, height: 280, step: 39, imageIndex: 2, regx: 9, regy: -80 },
+    bingjian: { width: 310, height: 280, step: 27, imageIndex: 3, regx: 9, regy: -80 },
+    hujia: { width: 300, height: 280, step: 25, imageIndex: 4, regx: 9, regy: -80 },
+    xiejia: { width: 310, height: 280, step: 27, imageIndex: 5, regx: 9, regy: -80 },
+    pojia: { width: 310, height: 211, step: 19, imageIndex: 6, regx: 1, regy: -150 },
+    shuimian: { width: 310, height: 220, step: 40, imageIndex: 7, regx: 0, regy: -140 },
+    pugong: { width: 300, height: 412, step: 12, imageIndex: 8, regx: 5, regy: 39 },
+    success: { width: 310, height: 251, step: 13, imageIndex: 9, regx: 18, regy: -110 },
+    fail: { width: 310, height: 280, step: 18, imageIndex: 10, regx: 51, regy: -82 },
+    pugongeffect: { width: 300, height: 422, step: 16, imageIndex: 11, regx: 0, regy: 0 }
+  }
+
+  var equipMap = {
+    leidian: { width: 300, height: 446, step: 17 },
+  }
+
+  var bingjianMap = {
+    bingjian: { width: 472, height: 101, step: 18, regx: 0, regy: 0 },
+  }
+
+  var hunzhanMap = {
+    hunzhan: { width: 500, height: 400, step: 6, regx: 0, regy: 0 },
+  }
+
+
+  function getFrames(teamId) {
+    var arr = [];
+    switch (teamId) {
+      case 1:
+        var map = greenMap;
+        break;
+      case 2:
+        var map = redMap;
+        break;
+      case 3:
+        var map = equipMap;
+        break;
+      case 4:
+        var map = bingjianMap;
+        break;
+      case 5:
+        var map = hunzhanMap;
+        break;
+    }
+    for (k in map) {
+      for (var i = 0; i < map[k].step; i++) {
+        arr.push([0, i * map[k].height, map[k].width, map[k].height, map[k].imageIndex, map[k].regx, map[k].regy])
+      }
+    }
+    return arr
+  }
+
+  function getResource(sourcearr) {
+    var result = []
+    for (var key in sourcearr) {
+      result = result.concat(sourcearr[key].arr.map(function (source) {
+        return { src: sourcearr[key].path + key + '-' + source + '.png', id: key + '-' + source }
+      }))
+    }
+
+    return result
+  }
+
+  function init() {
+    stage = new createjs.Stage("main")
+
+    manifest = getResource({
+      red: {
+        path: "assets/red/",
+        arr: ["default", "hujia", "huoqiu", "leidian", "pojia", "shuimian", "bingjian", "xiejia", "pugong", "success", "fail", "pugongeffect"]
+      },
+      green: {
+        path: "assets/green/",
+        arr: ["default", "hujia", "huoqiu", "leidian", "pojia", "shuimian", "bingjian", "xiejia", "pugong", "success", "fail", "pugongeffect"]
+      },
+      equip: {
+        path: "assets/",
+        arr: ["huoqiu", "leidian", "bingjian", "hunzhan"]
+      },
+
+    })
+
+    //预加载
+    loader = new createjs.LoadQueue(false)
+    loader.addEventListener("complete", handleComplete)
+    loader.loadManifest(manifest, true, "")
+  }
+  function redSprite() {
+    var redSpriteSheet = new createjs.SpriteSheet({
+      framerate: framerate,
+      images: [
+        loader.getResult("red-default"),
+        loader.getResult("red-huoqiu"),
+        loader.getResult("red-leidian"),
+        loader.getResult("red-bingjian"),
+        loader.getResult("red-hujia"),
+        loader.getResult("red-xiejia"),
+        loader.getResult("red-pojia"),
+        loader.getResult("red-shuimian"),
+        loader.getResult("red-pugong"),
+        loader.getResult("red-success"),
+        loader.getResult("red-fail"),
+        loader.getResult("red-pugongeffect")
+      ],
+      frames: getFrames(2),
+      animations: {
+        default: [0, 19, 'default', 1],
+        huoqiu: [20, 76, 'default', 1],
+        leidian: [77, 98, 'default', 1],
+        bingjian: [99, 121, 'default', 1],
+        hujia: [122, 156, 'default', 1],
+        xiejia: [157, 181, 'default', 1],
+        pojia: [182, 203, 'default', 1],
+        shuimian: [204, 243, 'shuimian', 1],
+        pugong: [244, 281, '', 1],
+        success: [282, 294, 'success', 1],
+        fail: [295, 311, '', 0.7],
+        pugongeffect: [312, 343, 'default', 1]
+      }
+    });
+
+    red = new createjs.Sprite(redSpriteSheet, "default")
+    red.setTransform(530, 0, 1, 1)
+  }
+
+  function greenSprite() {
+    var greenSpriteSheet = new createjs.SpriteSheet({
+      framerate: framerate,
+      images: [
+        loader.getResult("green-default"),
+        loader.getResult("green-huoqiu"),
+        loader.getResult("green-leidian"),
+        loader.getResult("green-bingjian"),
+        loader.getResult("green-hujia"),
+        loader.getResult("green-xiejia"),
+        loader.getResult("green-pojia"),
+        loader.getResult("green-shuimian"),
+        loader.getResult("green-pugong"),
+        loader.getResult("green-success"),
+        loader.getResult("green-fail"),
+        loader.getResult("green-pugongeffect")
+      ],
+      frames: getFrames(1),
+      animations: {
+        default: [0, 19, 'default', 1],
+        huoqiu: [20, 20 + 28, 'default', 1],
+        leidian: [49, 49 + 38, 'default', 1],
+        bingjian: [88, 88 + 26, 'default', 1],
+        hujia: [115, 115 + 24, 'default', 1],
+        xiejia: [140, 140 + 26, 'default', 1],
+        pojia: [167, 167 + 18, 'default', 1],
+        shuimian: [186, 186 + 39, 'shuimian', 1],
+        pugong: [226, 226 + 11, '', 1],
+        success: [238, 238 + 12, 'success', 1],
+        fail: [251, 251 + 17, '', 0.7],
+        pugongeffect: [269, 269 + 16, 'default', 1]
+      }
+    });
+
+
+    green = new createjs.Sprite(greenSpriteSheet, "default")
+    green.setTransform(0, 0, 1, 1)
+  }
+
+  function equipSprite() {
+    var equipSpriteSheet = new createjs.SpriteSheet({
+      framerate: framerate,
+      images: [
+        loader.getResult("equip-leidian"),
+      ],
+      frames: getFrames(3),
+      animations: {
+        leidian: [0, 17, '', 1],
+      }
+    });
+
+    equip = new createjs.Sprite(equipSpriteSheet, "");
+    equip.alpha = 0;
+    equip.setTransform(620, 150, 0.5, 0.5);
+  }
+
+  function bingjianSprite() {
+    var bingjianSpriteSheet = new createjs.SpriteSheet({
+      framerate: framerate,
+      images: [
+        loader.getResult("equip-bingjian"),
+      ],
+      frames: getFrames(4),
+      animations: {
+        bingjian: [0, 17, '', 1],
+      }
+    });
+    bingjian = new createjs.Sprite(bingjianSpriteSheet, "");
+    bingjian.alpha = 0;
+    bingjian.setTransform(10, 190, 1, 1);
+  }
+
+  function hunzhanSprite() {
+    var hunzhanSpriteSheet = new createjs.SpriteSheet({
+      framerate: framerate,
+      images: [
+        loader.getResult("equip-hunzhan"),
+      ],
+      frames: getFrames(5),
+      animations: {
+        bingjian: [0, 5, '', 1],
+      }
+    });
+    hunzhan = new createjs.Sprite(hunzhanSpriteSheet, "hunzhan");
+    hunzhan.alpha = 0;
+    hunzhan.setTransform(180, 50, 1, 1);
+  }
+
+
+  function huoqiu() {
+    huoqiu = new createjs.Bitmap(loader.getResult("equip-huoqiu"));
+    huoqiu.x = 180;
+    huoqiu.y = 200;
+    huoqiu.scaleX = 0.6;
+    huoqiu.scaleY = 0.6;
+    huoqiu.alpha = 0;
+  }
+
+  function redhuoqiu() {
+    redhuoqiu = new createjs.Bitmap(loader.getResult("equip-huoqiu"));
+    redhuoqiu.x = 570;
+    redhuoqiu.y = 100;
+    redhuoqiu.scaleX = 0.6;
+    redhuoqiu.scaleY = 0.6;
+    redhuoqiu.alpha = 0;
+    redhuoqiu.rotation = 160;
+  }
+
+  function handleComplete() {
+    redSprite();
+    greenSprite();
+    huoqiu();
+    redhuoqiu();
+    equipSprite();
+    bingjianSprite();
+    hunzhanSprite();
+
+    stage.addChild(red, green, huoqiu, redhuoqiu, equip, bingjian, hunzhan);
+
+    createjs.Ticker.timingMode = createjs.Ticker.RAF
+    createjs.Ticker.addEventListener("tick", tick)
+  }
+
+  function tick(event) {
+    var deltaS = event.delta / 1000
+
+    stage.update(event)
+  }
+
+  init()
+
+</script>
